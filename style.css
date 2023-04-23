@@ -118,7 +118,8 @@ nav ul li {
 }
 
 .menu-container,
-.booking-container {
+.booking-container,
+.contact-container {
   position: relative;
   width: 100%;
   height: 50vh;
@@ -126,14 +127,16 @@ nav ul li {
 }
 
 .menu-container img,
-.booking-container img {
+.booking-container img,
+.contact-container img {
   width: 100%;
   height: 50vh;
   object-fit: cover;
 }
 
 .menu-info,
-.booking-info {
+.booking-info,
+.contact-info {
   position: absolute;
   top: 50%; /* Set the top position to 50% */
   left: 50%; /* Set the left position to 50% */
@@ -147,7 +150,8 @@ nav ul li {
 }
 
 .menu-info p,
-.booking-info p {
+.booking-info p,
+.contact-info p {
   margin-bottom: 1rem;
 }
 
@@ -225,7 +229,7 @@ footer {
 
 /* Reservation Styles */
 
-form {
+.booking-form {
   margin-top: 10vh;
 }
 
@@ -262,4 +266,26 @@ label {
   width: 100vw;
   overflow: hidden;
   margin: 0;
+}
+
+/* Contact Styles */
+
+.contact-form {
+  margin-top: 10vh;
+}
+
+.contact-form h2 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.contact-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+.contact-map iframe {
+  width: 80vw;
+  height: 50vh;
 }
