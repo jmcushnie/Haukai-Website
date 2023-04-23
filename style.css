@@ -8,11 +8,121 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
 a {
   text-decoration: none;
 }
 ul {
   list-style: none;
+}
+
+/* Nav Bar */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.menu-toggle {
+  display: inline-block;
+  padding: 0.75em 15px;
+  line-height: 1em;
+  font-size: 1em;
+  color: white;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  color: rgba(255, 255, 255, 0.743);
+}
+
+.main-menu {
+  position: absolute;
+  display: none;
+  right: 0;
+  top: 0;
+  height: 100%;
+  overflow-x: hidden;
+  transition: left 0.3s ease, box-shadow 0.3s ease;
+  z-index: 999;
+}
+
+.main-menu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 2.5em 0 0;
+  min-height: 50%;
+  background: black;
+}
+
+.main-menu a {
+  display: block;
+  padding: 0.75em 15px;
+  line-height: 1em;
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  padding-bottom: 2rem;
+}
+
+.main-menu a:hover,
+.main-menu a:focus {
+  background: #333;
+}
+
+.main-menu .menu-close {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+}
+
+.main-menu:target,
+.main-menu[aria-expanded="true"] {
+  display: block;
+  left: 0;
+  outline: none;
+  overflow-y: hidden;
+}
+
+.main-menu:target .menu-close,
+.main-menu[aria-expanded="true"] .menu-close {
+  z-index: 1001;
+}
+
+.main-menu:target ul,
+.main-menu[aria-expanded="true"] ul {
+  position: relative;
+  z-index: 1000;
+}
+
+.main-menu:target + .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop {
+  position: fixed;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  cursor: default;
+  overflow-y: hidden;
+}
+
+@supports (position: fixed) {
+  .main-menu,
+  .main-menu:target + .backdrop,
+  .main-menu[aria-expanded="true"] + .backdrop {
+    position: fixed;
+  }
 }
 
 .header {
@@ -138,11 +248,10 @@ nav ul li {
 .booking-info,
 .contact-info {
   position: absolute;
-  top: 50%; /* Set the top position to 50% */
-  left: 50%; /* Set the left position to 50% */
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   padding: 1rem;
-  z-index: 1;
   background: rgba(125, 101, 65, 0.72);
   color: white;
   text-align: center;
@@ -288,4 +397,44 @@ label {
 .contact-map iframe {
   width: 80vw;
   height: 50vh;
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 768px) {
+  /* Nav Bar */
+
+  .menu-toggle,
+  .main-menu .menu-close {
+    display: none;
+  }
+
+  .main-menu {
+    position: relative;
+    left: auto;
+    top: auto;
+    height: auto;
+    display: block;
+  }
+
+  .main-menu ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    box-shadow: none;
+    height: auto;
+    width: auto;
+    background: none;
+  }
+
+  .main-menu a {
+    color: white;
+    border: 0 !important; /* Remove borders from off-canvas styling */
+  }
+
+  .main-menu a:hover,
+  .main-menu a:focus {
+    background: none; /* Remove background from off-canvas styling */
+    color: #c00;
+  }
 }
