@@ -530,3 +530,14 @@ label {
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .contact-form {
+    margin-top: 60vh;
+    padding: 2rem;
+  }
+
+  .contact-map {
+    margin-top: 10vh;
+  }
+}
